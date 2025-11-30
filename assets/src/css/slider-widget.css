@@ -1,0 +1,32 @@
+.slider-widget {
+    align-items: center;
+    background-color: white;
+    border: 0.2em solid var(--neutral-100);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.slider-widget .slider {
+    background-color: transparent;
+    border: 0.2em solid var(--neutral-100);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    font: inherit;
+    flex-direction: column;
+    gap: 1em;
+    text-align: left;
+    width: 100%;
+}
+
+.slider-widget .question {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.slider-widget .question img {
+    width: 100%;
+}

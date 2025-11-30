@@ -15,14 +15,131 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="../css/widget-page.css">
+  <link rel="stylesheet" href="../css/multiple-choice-widget.css">
+  <link rel="stylesheet" href="../css/slider-widget.css">
+  <link rel="stylesheet" href="../css/textbox-widget.css">
 </head>
 
 <body>
+  <div class="column column-md">
+    <section>
+      <div class="text">
+        <h1>Variable Introduction</h1>
+        <p>Variables are information stored for future data.</p>
+      </div>
+      <button class="button-semantic button-primary button-continue">
+        <span class="button-text">Continue</span>
+        <svg class="button-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 8L14.59 6.59L9 12.17V0H7V12.17L1.42 6.58L0 8L8 16L16 8Z" fill="white" />
+        </svg>
+      </button>
+    </section>
+     <section>
+      <div class="text">
+        <p>Variables can be set to change information.</p>
+      </div>
+      <div class="text center widget slider-widget">
+        <div class = output-label>
+          <p>Adjust the sliders to set the values of variables x and y. The output box will display the sum of x and y.</p>
+        </div>
+        <div class="widget question">
+          <label for="variable-input" class="input-label">
+            Set Variable x:
+            <b> <span class="" id="xOutput">5</span></b>
+          </label>
+          <input type="range" min="-10" max="10" value="0" class="slider" id="xRange">
+          <label for="variable-input" class="input-label">
+            Set Variable y:
+            <b> <span id="yOutput">5</span></b></p>
+          </label>
+          <input type="range" min="-10" max="10" value="0" class="slider" id="yRange"> 
+        </div>
+        <div class="widget slider-widget">
+          <div class="output-label">x + y: <b><label class="output-box" id="output">10</label></b></div>
+          
+        </div>
+      </div>
+      <button class="button-semantic button-primary button-continue">
+        <span class="button-text">Continue</span>
+        <svg class="button-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 8L14.59 6.59L9 12.17V0H7V12.17L1.42 6.58L0 8L8 16L16 8Z" fill="white" />
+        </svg>
+      </button>
+    </section>
+    <section>
+      <div class="text">
+        <p>Variables can be used text.</p>
+      </div>
+       <button class="button-semantic button-primary button-continue">
+        <span class="button-text">Continue</span>
+        <svg class="button-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 8L14.59 6.59L9 12.17V0H7V12.17L1.42 6.58L0 8L8 16L16 8Z" fill="white" />
+        </svg>
+      </button>
+    </section>
+    <section>
+    <div class="text center widget textbox-widget">
+        <input type="text" class="textbox" id="textX" placeholder="Enter text for variable X">
+        <input type="text" class="textbox" id="textY" placeholder="Enter text for variable Y">
+
+        <div>X Output: <b><label id="textXOutput"></label></b></div>
+        <div>Y Output: <b><label id="textYOutput"></label></b></div>
+        <div>Output: <b><label id="textOutput"></label></b></div>
+    </div>
+    <p class="text">These are adding two variables together.</p>
+    <button class="button-semantic button-primary button-continue">
+        <span class="button-text">Continue</span>
+        <svg class="button-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 8L14.59 6.59L9 12.17V0H7V12.17L1.42 6.58L0 8L8 16L16 8Z" fill="white" />
+        </svg>
+      </button>
+    </section>
+    <section>
+      <p>Did you see that?</p>
+      <div class="widget multiple-choice-widget">
+        <div class="question" id="cat-program-sequence-question">
+          <p>What happened when the two textboxes were put together?</p>
+        </div>
+        <div class="choices" role="radiogroup" aria-labelledby="cat-program-sequence-question"
+          aria-describedby="cat-program-sequence-image">
+          <button type="button" class="button-choice" role="radio" aria-checked="false" data-correct="false">
+            <div class="button-choice-icon" aria-hidden="true">A</div>
+            The numbers were added together and displayed instantly
+          </button>
+          <button type="button" class="button-choice" role="radio" aria-checked="false" data-correct="false">
+            <div class="button-choice-icon" aria-hidden="true">B</div>
+            The numbers were subtracted and displayed instantly
+          </button>
+          <button type="button" class="button-choice" role="radio" aria-checked="false" data-correct="true">
+            <div class="button-choice-icon" aria-hidden="true">C</div>
+            The numbers were concatenated and displayed instantly
+          </button>
+        </div>
+        <div class="feedback" role="status" aria-live="polite" aria-atomic="true" data-type="correct">
+          <strong>Correct!</strong> These are called strings, text variables. When text values are combined, they are joined
+          together in a process called concatenation.
+        </div>
+        <div class="feedback" role="status" aria-live="polite" aria-atomic="true" data-type="incorrect">
+          <strong>Not quite.</strong> These are different from the sliders.
+        </div>
+      </div>
+    </section>
+  </div>
   <script type="module">
     import { WidgetPage } from "../js/WidgetPage.js";
-
+    import { MultipleChoiceWidget } from "../js/MultipleChoiceWidget.js";
+    import { SliderWidget } from "../js/SliderWidget.js";
+    import { TextBoxWidget } from "../js/TextBoxWidget.js";
+    
     document.addEventListener("DOMContentLoaded", () => {
       const widgetPage = new WidgetPage("widget-page-template", document.body);
+      widgetPage.registerWidget(".slider-widget", SliderWidget);
+      widgetPage.registerWidget(".multiple-choice-widget", MultipleChoiceWidget);
+      widgetPage.registerWidget(".textbox-widget", TextBoxWidget);
     });
   </script>
 </body>
