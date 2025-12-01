@@ -9,9 +9,13 @@ Run the website there.
 ## What I added
 
 assets/src/html/widget.html
+
 assets/src/css/slider-widget.css
+
 ../textbox-widget
+
 assets/src/javascript/SliderWidget.js
+
 ../TextBoxWidget.js
 
 ## Resources
